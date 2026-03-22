@@ -10,6 +10,7 @@ A souvenir for those who have gone through the journey together.
 ![Preview](preview.gif)
 
 ## Features
+- **3840x2160@15fps (17211kbps)**
 - **Visual Glitch Effect**
 - **Customizable Clock**: Configurable position, 12/24 hour formats, and date display.
 - **Customizable Caption**: Configurable text, text direction (vertical/horizontal), and screen position.
