@@ -1,0 +1,249 @@
+@font-face {
+    font-family: "DS Digital";
+    src: url('../fonts/DS-DIGI.ttf');
+}
+
+@font-face {
+    font-family: "DS Digital Bold";
+    src: url('../fonts/DS-DIGIB.ttf');
+}
+
+body {
+    font-family: "DS Digital Bold", monospace;
+    background-color: #000;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+
+    /* 1. The Core Color: A very pale, icy cyan instead of harsh pure white */
+    color: #e0fcff;
+
+    /* 2. The Holographic Glow: Layered semi-transparent cyans and blues */
+    text-shadow:
+        0 0 4px rgba(0, 255, 255, 0.4),
+        /* Very tight, faint inner glow to blend the edge */
+        0 0 12px rgba(0, 255, 255, 0.8),
+        /* The main bright cyan halo */
+        0 0 25px rgba(0, 215, 255, 0.6),
+        /* Spreading out into an electric blue */
+        0 0 45px rgba(0, 170, 255, 0.4);
+    /* The wide, ambient background glow */
+}
+
+#bg-video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    z-index: -100;
+    object-fit: cover;
+}
+
+.content {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    user-select: none;
+    animation: fadeIn 2.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.inner {
+    position: absolute;
+    bottom: 20%;
+    left: 7%;
+
+    transform: perspective(600px) rotateX(15deg) rotateY(15deg) rotateZ(-10deg);
+    transform-origin: bottom center;
+}
+
+.inner-2 {
+    position: absolute;
+    bottom: 20%;
+    right: 7%;
+    writing-mode: vertical-lr;
+    transform: perspective(600px) rotateX(15deg) rotateY(-15deg) rotateZ(10deg);
+    transform-origin: bottom center;
+}
+
+.timeblock {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+}
+
+.timeblock-inner {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.time,
+.meridiem,
+.date,
+.caption {
+    margin: 0;
+    position: relative;
+}
+
+.time {
+    font-size: 8vw;
+    line-height: 0.9;
+    letter-spacing: 2px;
+}
+
+.meridiem {
+    font-size: 5vw;
+    line-height: 0.9;
+    letter-spacing: 2px;
+}
+
+.date {
+    font-size: 2.5vw;
+    line-height: 1.2;
+    letter-spacing: 4px;
+    opacity: 0.9;
+    text-transform: uppercase;
+}
+
+.caption {
+    font-size: 5vw;
+    line-height: 1.25;
+    letter-spacing: 2px;
+}
+
+/* --- THE GLITCH EFFECT --- */
+
+/* Create invisible clones of the text */
+.time::before,
+.time::after,
+.meridiem::before,
+.meridiem::after,
+.date::before,
+.date::after,
+.caption::before,
+.caption::after {
+    content: attr(data-text);
+    /* This pulls the text from HTML */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    /* Hidden by default so it stays readable */
+    pointer-events: none;
+}
+
+/* Layer 1: Shifts Left, flashes Green/Cyan */
+.time::before,
+.meridiem::before,
+.date::before
+.caption::before {
+    left: -3px;
+    text-shadow: -2px 0 #00ff66;
+    /* Edgerunners green/yellow tint */
+    animation: glitch-anim-1 4s infinite linear alternate-reverse;
+}
+
+/* Layer 2: Shifts Right, flashes Magenta/Red */
+.time::after,
+.meridiem::after,
+.date::after,
+.caption::after {
+    left: 3px;
+    text-shadow: -2px 0 #ff0055;
+    /* Edgerunners magenta tint */
+    animation: glitch-anim-2 3.5s infinite linear alternate-reverse;
+}
+
+/* Animation 1: Slices the text horizontally and shifts it */
+@keyframes glitch-anim-1 {
+
+    0%,
+    85% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+
+    86% {
+        opacity: 1;
+        clip-path: inset(20% 0 60% 0);
+        transform: translate(-4px, 1px);
+    }
+
+    88% {
+        opacity: 1;
+        clip-path: inset(60% 0 10% 0);
+        transform: translate(2px, -1px);
+    }
+
+    90% {
+        opacity: 1;
+        clip-path: inset(40% 0 40% 0);
+        transform: translate(-2px, 0);
+    }
+
+    92%,
+    100% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+}
+
+/* Animation 2: Different slice timing for extra chaos */
+@keyframes glitch-anim-2 {
+
+    0%,
+    82% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+
+    83% {
+        opacity: 1;
+        clip-path: inset(10% 0 70% 0);
+        transform: translate(4px, 0);
+    }
+
+    85% {
+        opacity: 1;
+        clip-path: inset(80% 0 5% 0);
+        transform: translate(-3px, 1px);
+    }
+
+    87% {
+        opacity: 1;
+        clip-path: inset(30% 0 50% 0);
+        transform: translate(3px, -1px);
+    }
+
+    89%,
+    100% {
+        opacity: 0;
+        clip-path: inset(0 0 0 0);
+        transform: translate(0);
+    }
+}

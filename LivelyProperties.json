@@ -1,0 +1,87 @@
+{
+  "clockPosX": {
+    "text": "Clock Position (Horizontal %) from the left",
+    "type": "slider",
+    "value": 7,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "clockPosY": {
+    "text": "Clock Position (Vertical %) from the bottom",
+    "type": "slider",
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "captionPosX": {
+    "text": "Caption Position (Horizontal %) from the right",
+    "type": "slider",
+    "value": 7,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "captionPosY": {
+    "text": "Caption Position (Vertical %) from the bottom",
+    "type": "slider",
+    "value": 20,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  },
+  "months": {
+    "text": "Months (comma separated)",
+    "type": "textbox",
+    "value": "January,February,March,April,May,June,July,August,September,October,November,December"
+  },
+  "hourFormat": {
+    "text": "Hour Format",
+    "type": "dropdown",
+    "value": 0,
+    "items": [
+      "12 Hour",
+      "24 Hour"
+    ]
+  },
+  "dateFormat": {
+    "text": "Date Format",
+    "type": "dropdown",
+    "value": 0,
+    "items": [
+      "Month DD, YYYY",
+      "DD Month YYYY",
+      "YYYY-MM-DD"
+    ]
+  },
+  "caption": {
+    "text": "Caption",
+    "type": "textbox",
+    "value": "俺が君を月に、<br>連れて行くよ！<br>約束する！"
+  },
+  "textDirection": {
+    "text": "Caption Text Direction",
+    "type": "dropdown",
+    "value": 0,
+    "items": [
+      "Vertical",
+      "Horizontal"
+    ]
+  },
+  "bgMusic": {
+    "text": "Background Music",
+    "type": "folderDropdown",
+    "folder": "assets/audio",
+    "filter": "*.mp3",
+    "value": "bg-music.mp3"
+  },
+  "bgVolume": {
+    "text": "Background Music Volume",
+    "type": "slider",
+    "value": 15,
+    "min": 0,
+    "max": 100,
+    "step": 1
+  }
+}

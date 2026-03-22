@@ -1,0 +1,17 @@
+{
+  "AppVersion": "2.2.1.0",
+  "Title": "Cyberpunk Edgerunners Moon",
+  "Thumbnail": "thumbnail.png",
+  "Preview": "preview.gif",
+  "Desc": "A souvenir for those who have gone through the journey together.",
+  "Author": "Manadra",
+  "License": "MIT License",
+  "Contact": "https://github.com/Manadrah/cyberpunk-edgerunners-moon-lively-wallpaper",
+  "Type": 1,
+  "FileName": "index.html",
+  "Arguments": null,
+  "IsAbsolutePath": false,
+  "Id": null,
+  "Tags": null,
+  "Version": 0
+}
